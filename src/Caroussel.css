@@ -1,0 +1,44 @@
+.car_box {
+  font-size: 14px;
+  margin-left: 20px;
+}
+.car_factBox {
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 100px;
+  border-style: dashed;
+  border-width: thin;
+  border-color: turquoise;
+  padding: 20px;
+}
+.car-factbox table {
+  table-layout: auto;
+}
+.car_containers {
+  background-image: url('./assets/container.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left:40px;
+  padding-bottom: 1em;
+
+
+}
+.car_trains {
+  background-image: url('./assets/train.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left:40px;
+  padding-bottom: 1em;
+}
+.car_currentships {
+  background-image: url('./assets/ship.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left:40px;
+  padding-bottom: 1em;
+}
+.car_number {
+  text-align: right;
+  margin-right: 2em;
+}
