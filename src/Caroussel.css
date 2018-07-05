@@ -17,8 +17,8 @@
 }
 .car_row {
   background-repeat: no-repeat;
-  background-size: 30px;
-  padding-left: 40px;
+  background-size: 40px;
+  padding-left: 50px;
 }
 .car_containers {
   background-image: url('./assets/container.png');
@@ -35,4 +35,7 @@
 .car_number {
   text-align: right;
   margin-right: 2em;
+}
+table, th, td {
+  height: 35px;
 }
