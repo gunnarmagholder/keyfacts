@@ -7,13 +7,13 @@ class PictureBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        pictureUrl: '../assets/ship.jpg'
+        pictureUrl: './assets/ship.jpg'
     }
   }
   render() {
     return (
      <div className="car_picturebox">
-        <img src={this.state.pictureUrl} width={300} height={300} mode='fit' />
+        <img src={this.state.pictureUrl} width={300} height={250} mode='fit' />
     </div>
     );
   }

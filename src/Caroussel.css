@@ -21,15 +21,15 @@
   padding-left: 50px;
 }
 .car_containers {
-  background-image: url('./assets/container.png');
+  background-image: url('/assets/container.png');
 
 }
 .car_trains {
-  background-image: url('./assets/train.png');
+  background-image: url('/assets/train.png');
 
 }
 .car_currentships {
-  background-image: url('./assets/ship.png');
+  background-image: url('/assets/ship.png');
 
 }
 .car_number {
