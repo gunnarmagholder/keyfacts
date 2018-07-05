@@ -15,28 +15,22 @@
 .car-factbox table {
   table-layout: auto;
 }
-.car_containers {
-  background-image: url('./assets/container.png');
+.car_row {
   background-repeat: no-repeat;
   background-size: 30px;
-  padding-left:40px;
-  padding-bottom: 1em;
-
+  padding-left: 40px;
+}
+.car_containers {
+  background-image: url('./assets/container.png');
 
 }
 .car_trains {
   background-image: url('./assets/train.png');
-  background-repeat: no-repeat;
-  background-size: 30px;
-  padding-left:40px;
-  padding-bottom: 1em;
+
 }
 .car_currentships {
   background-image: url('./assets/ship.png');
-  background-repeat: no-repeat;
-  background-size: 30px;
-  padding-left:40px;
-  padding-bottom: 1em;
+
 }
 .car_number {
   text-align: right;
