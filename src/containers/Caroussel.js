@@ -9,9 +9,6 @@ class Caroussel extends Component {
     picture: PictureBox,
     facts: FactBox,
   };
-  constructor(props) {
-    super(props);
-  }
   render() {
     const TagName = this.components[this.props.tag];
     return (

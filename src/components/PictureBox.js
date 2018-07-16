@@ -13,7 +13,7 @@ class PictureBox extends Component {
   render() {
     return (
      <div className="car_picturebox">
-        <img src={this.state.pictureUrl} width={300} height={250} mode='fit' />
+        <img alt="Ship of the week" src={this.state.pictureUrl} width={300} height={250} mode='fit' />
     </div>
     );
   }
