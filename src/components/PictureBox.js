@@ -7,7 +7,8 @@ class PictureBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        pictureUrl: this.getImageUrl()
+        pictureUrl: 'https://pbs.twimg.com/media/DiNq-_7W0AAOEQu.jpg:large',
+	configData: require('../config.development.json')
     }
   }
   render() {
@@ -19,12 +20,7 @@ class PictureBox extends Component {
   }
   getImageUrl() {
     var image_url = '';
-    var client = new Twitter({
-      consumer_key: 'aIgLWM46xW4KbFK62j2nL0Zlq',
-      consumer_secret: 'SzM4qv4Wuk3U9PTrOzG2ULG8KuqNhlzZw53qGET7pdNASTdrL3',
-      access_token_key: '15296186-3R0NtUMfylTTnUHeyXZqsK3rlKnaFAIUF4eb06Vi4',
-      access_token_secret: 'rOvE6ABRLcTshgMKtQ4KneYFxekSkXuxE63Eo1MCD7c0o'
-    });
+    var client = new Twitter(this.state.configData);
     client.get('search/tweets', {q: '#schiffdestages @portofhamburg', tweet_mode: 'extended'}, function(error, tweets, response) {
       image_url = tweets['statuses'][0]['extended_entities']['media'][0]['media_url']
     });
