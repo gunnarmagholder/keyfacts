@@ -6,7 +6,7 @@ class PictureBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        pictureUrl: 'assets/ship.jpg'
+        pictureUrl: 'assets/ship.jpg?t=' + new Date().getTime()
     }
   }
   render() {
