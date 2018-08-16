@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import '../Caroussel.css';
+import { CSSTransitionGroup } from 'react-transition-group';
+// import '../Caroussel.css';
 
 
 class FactBox extends Component {
@@ -12,8 +12,19 @@ class FactBox extends Component {
       currentShips: 18
     }
   }
+  componentDidMount() {
+    console.log('Mounted FactBox');
+  }
   render() {
-    return (
+    return (      
+    <CSSTransitionGroup
+      transitionName="keyfact"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter="keyfact"
+      transitionLeave={false}>
+        
+     
      <div className="car_factBox">
       <table>
         <tbody>
@@ -32,6 +43,7 @@ class FactBox extends Component {
           </tbody>
         </table>
       </div>
+      </CSSTransitionGroup>
     );
   }
 }

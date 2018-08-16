@@ -22,6 +22,21 @@
   font-size: large;
 }
 
+.keyfact-appear {
+  opacity: 0.01;
+}
+.keyfact-appear.keyfact-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.keyfact-enter {
+  opacity: 0.01;
+}
+.keyfact-enter.keyfact-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
