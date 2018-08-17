@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 // import '../Caroussel.css';
 
 
@@ -17,15 +17,10 @@ class FactBox extends Component {
   }
   render() {
     return (      
-    <CSSTransitionGroup
-      transitionName="keyfact"
-      transitionAppear={true}
-      transitionAppearTimeout={500}
-      transitionEnter="keyfact"
-      transitionLeave={false}>
-        
-     
-     <div className="car_factBox">
+      <CSSTransition
+      className="keyfact"
+      timeout={{ enter: 5000, exit: 3000 }}>
+      <div className="car_factBox">
       <table>
         <tbody>
           <tr>
@@ -43,7 +38,7 @@ class FactBox extends Component {
           </tbody>
         </table>
       </div>
-      </CSSTransitionGroup>
+      </CSSTransition>
     );
   }
 }
