@@ -19,7 +19,7 @@ class PictureBox extends Component {
       transitionName="keyfact"
       transitionAppear={true}
       transitionAppearTimeout={500}
-      transitionEnter="keyfact"
+      transitionEnter={false}
       transitionLeave={false}>
      <div className="car_picturebox">
         <img className="fadeIn" alt="Ship of the week" src={this.state.pictureUrl} width={250} height={200} mode='fit' />

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
-// import '../App.css';
-// import '../Caroussel.css';
 import FactBox from '../components/FactBox';
 import PictureBox from '../components/PictureBox'
 
