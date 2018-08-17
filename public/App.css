@@ -23,7 +23,7 @@
 }
 
 .keyfact-appear {
-  opacity: 0.01;
+  opacity: 0.1;
 }
 .keyfact-appear.keyfact-appear-active {
   opacity: 1;
@@ -31,16 +31,13 @@
 }
 
 .keyfact-enter {
-  opacity: 0.01;
+  opacity: 0.1;
 }
 .keyfact-enter.keyfact-enter-active {
   opacity: 1;
   transition: opacity 1s ease-in;
 }
-.keyfact-enter-done {
-  opacity: 1;
-}
-.keyframe-exit {
+.keyfact-leave {
   opacity: 1;
 }
 @keyframes App-logo-spin {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FactBox from '../components/FactBox';
 import PictureBox from '../components/PictureBox'
-import { TransitionGroup } from 'react-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Caroussel extends Component {
   
@@ -26,7 +26,7 @@ class Caroussel extends Component {
 
     return (
       <div className="car_box">
-          <TagName />
+        <TagName />
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
 // import '../Caroussel.css';
 
 
@@ -17,9 +16,6 @@ class FactBox extends Component {
   }
   render() {
     return (      
-      <CSSTransition
-      className="keyfact"
-      timeout={{ enter: 5000, exit: 3000 }}>
       <div className="car_factBox">
       <table>
         <tbody>
@@ -38,7 +34,6 @@ class FactBox extends Component {
           </tbody>
         </table>
       </div>
-      </CSSTransition>
     );
   }
 }
