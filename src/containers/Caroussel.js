@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import FactBox from '../components/FactBox';
 import PictureBox from '../components/PictureBox'
-import { CSSTransitionGroup } from 'react-transition-group';
 
 class Caroussel extends Component {
-  
+  config = { 
+    "timeBetweenComponents": 180000,
+  }
   components = [
     PictureBox,
     FactBox,
@@ -19,7 +20,7 @@ class Caroussel extends Component {
     setInterval(() => {
       var newComponentToRender = this.state.componentToRender < this.components.length-1 ? this.state.componentToRender+1 : 0; 
       this.setState({ componentToRender: newComponentToRender });
-    },180000);
+    },this.config.timeBetweenComponents);
   };
   render() {
     const TagName = this.components[this.state.componentToRender];
