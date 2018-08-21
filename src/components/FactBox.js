@@ -6,9 +6,9 @@ class FactBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      containers: 1500,
-      trains: 480,
-      currentShips: 18
+      containers: 15.000,
+      trains: 642,
+      currentShips: 87
     }
   }
   componentDidMount() {
@@ -17,22 +17,7 @@ class FactBox extends Component {
   render() {
     return (      
       <div className="car_factBox">
-      <table>
-        <tbody>
-          <tr>
-              <td className="car_containers car_row">Container: </td>
-              <td className="car_number">{this.state.containers}</td>
-          </tr>
-          <tr>
-              <td className="car_trains car_row">Trains: </td>
-              <td className="car_number">{this.state.trains}</td>
-          </tr>
-          <tr>
-              <td className="car_currentships car_row">Ships:   </td>
-              <td className="car_number">{this.state.currentShips}</td>
-          </tr>
-          </tbody>
-        </table>
+        <img width="300" src="https://www.hafen-hamburg.de/images/540/media/preview/charts-pressekonferenz2017.jpg"></img>
       </div>
     );
   }
