@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FactBox from '../components/FactBox';
-import PictureBox from '../components/PictureBox'
+import PictureBox from '../components/PictureBox';
+import TrafficInfo from '../components/TrafficInfo';
 
 class Caroussel extends Component {
   config = { 
@@ -9,6 +10,7 @@ class Caroussel extends Component {
   components = [
     PictureBox,
     FactBox,
+    // TrafficInfo,
   ];
   constructor(props) {
     super(props);

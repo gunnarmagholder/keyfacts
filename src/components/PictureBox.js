@@ -34,7 +34,7 @@ class PictureBox extends Component {
         <br />
         "{this.state.shipName}" </h3>
         
-        <img className="fadeIn" alt="Ship of the week" src={this.state.pictureUrl} width={250} height={200} mode='fit' />
+        <img id="sodpicture" className="fadeIn" alt="Ship of the week" src={this.state.pictureUrl} width={250} height={200} mode='fit' />
       </div>
     );
   }
