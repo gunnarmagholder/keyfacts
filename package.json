@@ -1,6 +1,6 @@
 {
   "name": "keyfacts",
-  "homepage": "http://dobby.intranet.hpa/keyfacts",
+  "homepage": "http://cdn.intranet.hpa/keyfacts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
