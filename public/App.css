@@ -22,29 +22,14 @@
   font-size: large;
 }
 
-.keyfact-appear {
-  opacity: 0.1;
-}
-.keyfact-appear.keyfact-appear-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.keyfact-enter {
-  opacity: 0.1;
-}
-.keyfact-enter.keyfact-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-.keyfact-leave {
-  opacity: 1;
-}
 #sodheader {
-  padding-bottom: 3px;
-  border-bottom: dotted 2px blue;
-  width: 250px;
+  width: auto;
   text-align: center;
+}
+#sodpicture {
+  width: 100%;
+  height: 100%;
+  padding-right: 10px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
