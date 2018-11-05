@@ -25,7 +25,7 @@ class Caroussel extends Component {
       var newComponentToRender = this.state.componentToRender < this.components.length-1 ? this.state.componentToRender+1 : 0; 
       this.setState({ componentToRender: newComponentToRender });
     },this.config.timeBetweenComponents);
-  };
+  }
   render() {
     const TagName = this.components[this.state.componentToRender];
 
