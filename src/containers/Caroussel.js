@@ -20,15 +20,15 @@ class Caroussel extends Component {
       componentToRender: 0
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     setInterval(() => {
       var newComponentToRender = this.state.componentToRender < this.components.length-1 ? this.state.componentToRender+1 : 0; 
       this.setState({ componentToRender: newComponentToRender });
     },this.config.timeBetweenComponents);
   }
   render() {
-    const TagName = this.components[this.state.componentToRender];
-
+    const TagName = this.components()[this.state.componentToRender];
+    console.log("Rendering " + TagName);
     return (
       <div className="car_box">
         <TagName />
