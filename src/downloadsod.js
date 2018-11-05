@@ -15,10 +15,11 @@ var client = new Twitter(configData);
 var image_url = '';
 client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode: 'extended'}, function(error, tweets, response) {
   if(error) {
-  	console.log(error);
+    console.log(error);
   }
   // console.log(tweets['statuses'][0]);
   image_url = tweets['statuses'][0]['extended_entities']['media'][0]['media_url'];
+  
   console.log(image_url); 
   var full_text = tweets['statuses'][0]['full_text'];
   var shipLink = extractShipLink(full_text);
@@ -40,9 +41,11 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
 });
 
 function extractShipLink(fullTextFromTweet) {
-  const regex = /\@PortofHamburg(.*)\@Port_traffic/gm;
+  console.log("Full text from tweet " + fullTextFromTweet);
+  const regex = /\@PortofHamburg(.*)\@Port_traffic(.*)/gm;
   let m;
   m = regex.exec(fullTextFromTweet);
+  console.log(m);
   var shipLink = m[1];
   shipLink = shipLink.trim();
   return shipLink;
@@ -50,7 +53,7 @@ function extractShipLink(fullTextFromTweet) {
 
 function getShipNameFromUrl(urlOfShipData) {
   var pageSource;
-  
+  console.log("Ship Data Page " + urlOfShipData);
   request(urlOfShipData, (err, response, body) => {
     if(!err) {
       var $ = cheerio.load(body);
