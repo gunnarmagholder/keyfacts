@@ -8,7 +8,8 @@ class FactBox extends Component {
     this.state = {
       containers: 15.000,
       trains: 642,
-      currentShips: 87
+      currentShips: 87,
+      factimage: 'assets/charts-pressekonferenz2017.jpg?t=' + new Date().getTime(),
     }
   }
   componentDidMount() {
@@ -17,7 +18,7 @@ class FactBox extends Component {
   render() {
     return (      
       <div className="car_factBox">
-        <img width="300" src="https://www.hafen-hamburg.de/images/540/media/preview/charts-pressekonferenz2017.jpg"></img>
+        <img width="300" src={this.state.factimage}></img>
       </div>
     );
   }
