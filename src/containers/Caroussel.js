@@ -5,7 +5,7 @@ import PictureBox from '../components/PictureBox';
 
 class Caroussel extends Component {
   config() { 
-    return {"timeBetweenComponents": 30000};
+    return {"timeBetweenComponents": 900000};
   }
   components() { 
     return [

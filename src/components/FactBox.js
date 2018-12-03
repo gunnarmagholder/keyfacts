@@ -18,7 +18,7 @@ class FactBox extends Component {
   render() {
     return (      
       <div className="car_factBox">
-        <img width="300" src={this.state.factimage}></img>
+        <img width="300" src={this.state.factimage} alt="Infografik über Umschlagszahlen des Hamburger Hafens aus dem Jahr 2017"></img>
       </div>
     );
   }
