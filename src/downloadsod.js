@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 'use strict'
 
 var Twitter = require('twitter');
 var fs = require('fs');
-
+var http = require('http');
 var request = require('request');
 var cheerio = require('cheerio');
 var configData = require('./config.development.json');
@@ -15,6 +16,21 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
   if(error) {
     console.log(error);
   }
+  var image_url = tweets.statuses[0]['extended_entities']['media'][0]['media_url'];
+  console.log("Getting Picture : " + image_url);
+  var file = fs.createWriteStream('../public/assets/ship.jpg');
+  var request_image = http.get(image_url, (response) => {
+    response.pipe(file);
+    file.on('finish', () => { 
+      console.log("File written. Closing...");
+      file.close();
+    });
+  }).on('error', (err) => {
+    if(err) { 
+      fs.unlink(dest); 
+      console.log(err);
+    }
+  });
   var allUrls = getUrls(tweets.statuses[0].full_text);
   console.log("Found URLS in tweet: " + allUrls);  
   allUrls.forEach((value) => {
@@ -28,6 +44,9 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
     });
   });
 });
+
+
+
 
 function getShipNameFromUrl(urlOfShipData) {
   
