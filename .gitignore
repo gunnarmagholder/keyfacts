@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /public/assets/*
-public/assets/ship.jpg
+*.jpg
 # testing
 /coverage
 
