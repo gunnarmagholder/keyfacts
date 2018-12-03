@@ -14,39 +14,17 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
   if(error) {
     console.log(error);
   }
-  // console.log(tweets['statuses'][0]);
-  image_url = tweets['statuses'][0]['extended_entities']['media'][0]['media_url'];
-  
-  console.log("Image URL : " + image_url); 
-  var full_text = tweets['statuses'][0]['full_text'];
-  var shipLink = extractShipLink(full_text);
-  console.log("Ship Link : " + shipLink);
-  var shipName = getShipNameFromUrl(shipLink);
-  var file = fs.createWriteStream('../public/assets/ship.jpg');
-  var request = http.get(image_url, (response) => {
-    response.pipe(file);
-    file.on('finish', () => { 
-      file.close();
+  var allUrls = getUrls(tweets.statuses[0].full_text);
+  console.log("Found URLS in tweet: " + allUrls);  
+  allUrls.forEach((value) => {
+    var r = request.get(value, (err, res, body) => {
+      console.log(res.request.uri.href);
+      if(res.request.uri.href.indexOf("www.hafen-hamburg.de") !== -1 ) {
+        getShipNameFromUrl(res.request.uri.href);
+      }
     });
-  }).on('error', (err) => {
-    if(err) { 
-      fs.unlink(dest); 
-      console.log(err);
-    };
   });
-
 });
-
-function extractShipLink(fullTextFromTweet) {
-  console.log("Full text from tweet " + fullTextFromTweet);
-  const regex = /\@PortofHamburg(.*)\@Port_traffic(.*)/gm;
-  let m;
-  m = regex.exec(fullTextFromTweet);
-  console.log("Regex findings : " +m);
-  var shipLink = m[1];
-  shipLink = shipLink.trim();
-  return shipLink;
-}
 
 function getShipNameFromUrl(urlOfShipData) {
   var pageSource;
@@ -55,6 +33,7 @@ function getShipNameFromUrl(urlOfShipData) {
     if(!err) {
       var $ = cheerio.load(body);
       var shipName = $('h1.col-100').text();
+      console.log("Got Ship Name : " + shipName);
       fs.writeFile('../public/assets/ship.json', shipName, (err) => {
         if(err) {
           console.log('Error : ' + err);
