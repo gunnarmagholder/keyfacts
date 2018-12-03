@@ -1,15 +1,16 @@
+/* eslint-disable no-undef */
 'use strict'
 
 var Twitter = require('twitter');
 var fs = require('fs');
-var http = require('http');
+
 var request = require('request');
 var cheerio = require('cheerio');
 var configData = require('./config.development.json');
 var getUrls = require('get-urls');
 
 var client = new Twitter(configData);
-var image_url = '';
+
 client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode: 'extended'}, function(error, tweets, response) {
   if(error) {
     console.log(error);
@@ -21,13 +22,15 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
       console.log(res.request.uri.href);
       if(res.request.uri.href.indexOf("www.hafen-hamburg.de") !== -1 ) {
         getShipNameFromUrl(res.request.uri.href);
+      } else {
+        console.log("Media URL : " + res.request.uri.href);
       }
     });
   });
 });
 
 function getShipNameFromUrl(urlOfShipData) {
-  var pageSource;
+  
   console.log("Ship Data Page " + urlOfShipData);
   request(urlOfShipData, (err, response, body) => {
     if(!err) {
