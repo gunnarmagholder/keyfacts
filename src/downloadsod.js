@@ -6,10 +6,7 @@ var http = require('http');
 var request = require('request');
 var cheerio = require('cheerio');
 var configData = require('./config.development.json');
-
-
-
-
+var getUrls = require('get-urls');
 
 var client = new Twitter(configData);
 var image_url = '';
@@ -20,10 +17,10 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
   // console.log(tweets['statuses'][0]);
   image_url = tweets['statuses'][0]['extended_entities']['media'][0]['media_url'];
   
-  console.log(image_url); 
+  console.log("Image URL : " + image_url); 
   var full_text = tweets['statuses'][0]['full_text'];
   var shipLink = extractShipLink(full_text);
-  console.log(shipLink);
+  console.log("Ship Link : " + shipLink);
   var shipName = getShipNameFromUrl(shipLink);
   var file = fs.createWriteStream('../public/assets/ship.jpg');
   var request = http.get(image_url, (response) => {
@@ -45,7 +42,7 @@ function extractShipLink(fullTextFromTweet) {
   const regex = /\@PortofHamburg(.*)\@Port_traffic(.*)/gm;
   let m;
   m = regex.exec(fullTextFromTweet);
-  console.log(m);
+  console.log("Regex findings : " +m);
   var shipLink = m[1];
   shipLink = shipLink.trim();
   return shipLink;
