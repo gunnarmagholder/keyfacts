@@ -5,7 +5,7 @@ import PictureBox from '../components/PictureBox';
 
 class Caroussel extends Component {
   config() { 
-    return {"timeBetweenComponents": 900000};
+    return {"timeBetweenComponents": 1000};
   }
   components() { 
     return [
@@ -22,6 +22,7 @@ class Caroussel extends Component {
   }
   componentWillMount() {
     setInterval(() => {
+      
       var newComponentToRender = this.state.componentToRender < this.components.length-1 ? this.state.componentToRender+1 : 0; 
       this.setState({ componentToRender: newComponentToRender });
     },this.config.timeBetweenComponents);
