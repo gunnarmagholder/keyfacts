@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FactBox from '../components/FactBox';
 import PictureBox from '../components/PictureBox';
-import { throws } from 'assert';
+// import { throws } from 'assert';
 // import TrafficInfo from '../components/TrafficInfo';
 
 class Caroussel extends Component {
@@ -32,12 +32,15 @@ class Caroussel extends Component {
   }
   changeComponentInRotation() {
     var thisMinute = (new Date(Date.now())).getMinutes();
-    var amountOfComponentsToShow = this.components.length;
-
-    var newComponentToRender = Math.floor((thisMinute*2)(amountOfComponentsToShow));
+    var amountOfComponentsToShow = this.components().length;
+    console.log("Amount of Components to show : " + amountOfComponentsToShow);
+    var newComponentToRender = Math.floor((thisMinute*amountOfComponentsToShow)/60);
+    console.log("newComponentToRender : " + newComponentToRender);
+    
     this.setState({ componentToRender: newComponentToRender });
   }
   render() {
+    console.log(this.state.componentToRender);
     const TagName = this.components()[this.state.componentToRender];
     
     return (
