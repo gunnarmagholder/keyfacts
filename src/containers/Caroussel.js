@@ -32,8 +32,9 @@ class Caroussel extends Component {
   }
   changeComponentInRotation() {
     var thisMinute = (new Date(Date.now())).getMinutes();
-    var amountOfComponentsToShow = components.length();    
-    var newComponentToRender = 0;
+    var amountOfComponentsToShow = this.components.length;
+
+    var newComponentToRender = Math.floor((thisMinute*2)(amountOfComponentsToShow));
     this.setState({ componentToRender: newComponentToRender });
   }
   render() {
