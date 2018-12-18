@@ -21,18 +21,20 @@ class Caroussel extends Component {
       componentToRender: 0
     }
   }
-  componentWillMount() {
-    setInterval(() => {
-      console.log("Hit interval");
-      var thisMoment = new Date(Date.now());
-      // var thisMinute = thisMoment.getMinutes();
-      var thisMinute=31;
-      var lengthOfInterval = 60/this.components.length;
-      var newComponentToRender = Math.floor(thisMinute/lengthOfInterval);
-      // var newComponentToRender = this.state.componentToRender < this.components.length-1 ? this.state.componentToRender+1 : 0; 
-      // console.log("rendering item # " + newComponentToRender);
-      this.setState({ componentToRender: newComponentToRender });
-    },this.config.timeBetweenComponents);
+  componentDidMount() {
+    console.log("Calling ComponentDidMount");
+    this.timerID = setInterval(() => 
+      this.changeComponentInRotation()
+    ,this.config.timeBetweenComponents);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  changeComponentInRotation() {
+    var thisMinute = (new Date(Date.now())).getMinutes();
+    var amountOfComponentsToShow = components.length();    
+    var newComponentToRender = 0;
+    this.setState({ componentToRender: newComponentToRender });
   }
   render() {
     const TagName = this.components()[this.state.componentToRender];

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import request  from 'request';
 // import '../Caroussel.css';
-
+import shipImage from '../assets/ship.jpg';
 
 class PictureBox extends Component {
   
@@ -9,10 +9,10 @@ class PictureBox extends Component {
     super(props);
     
     this.state = {
-        pictureUrl: 'assets/ship.jpg?t=' + new Date().getTime(),
+        pictureUrl: shipImage,
         shipName: ""
     }
-    request('https://cdn.intranet.hpa/keyfacts/assets/ship.json', (err, response, body) => {
+    request('../assets/ship.json', (err, response, body) => {
       if(!err) {
         this.setState({'shipName': body});
       } else {

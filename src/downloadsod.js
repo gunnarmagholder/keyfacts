@@ -46,10 +46,7 @@ client.get('search/tweets', {q: '#schiffdestages from:portofhamburg', tweet_mode
 });
 
 
-
-
 function getShipNameFromUrl(urlOfShipData) {
-  
   console.log("Ship Data Page " + urlOfShipData);
   request(urlOfShipData, (err, response, body) => {
     if(!err) {
