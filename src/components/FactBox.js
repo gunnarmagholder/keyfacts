@@ -5,11 +5,13 @@ import React, { Component } from 'react';
 class FactBox extends Component {
   constructor(props) {
     super(props);
+    var pictureArray = props.params;
+    console.log(pictureArray[1]);
     this.state = {
       containers: 15.000,
       trains: 642,
       currentShips: 87,
-      factimage: 'assets/charts-pressekonferenz2017.jpg?t=' + new Date().getTime(),
+      factimage: pictureArray[1] + '?t=' + new Date().getTime(),
     }
   }
   componentDidMount() {

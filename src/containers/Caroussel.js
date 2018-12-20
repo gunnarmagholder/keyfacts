@@ -22,7 +22,7 @@ class Caroussel extends Component {
     }
   }
   componentDidMount() {
-    console.log("Calling ComponentDidMount");
+    
     this.timerID = setInterval(() => 
       this.changeComponentInRotation()
     ,this.config.timeBetweenComponents);
@@ -33,19 +33,18 @@ class Caroussel extends Component {
   changeComponentInRotation() {
     var thisMinute = (new Date(Date.now())).getMinutes();
     var amountOfComponentsToShow = this.components().length;
-    console.log("Amount of Components to show : " + amountOfComponentsToShow);
+    
     var newComponentToRender = Math.floor((thisMinute*amountOfComponentsToShow)/60);
-    console.log("newComponentToRender : " + newComponentToRender);
     
     this.setState({ componentToRender: newComponentToRender });
   }
   render() {
-    console.log(this.state.componentToRender);
-    const TagName = this.components()[this.state.componentToRender];
     
+    const TagName = this.components()[this.state.componentToRender];
+    const pictures = ['assets/charts-pressekonferenz2017.jpg', 'assets/traffic-area_de.png'];
     return (
       <div className="car_box">
-        <TagName />
+        <TagName params={pictures} />
       </div>
     );
   }
