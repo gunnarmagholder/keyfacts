@@ -11,7 +11,7 @@ class Caroussel extends Component {
   }
   components() { 
     return [
-      PictureBox,
+      // PictureBox,
       FactBox,
       // TrafficInfo,
     ]
@@ -44,7 +44,7 @@ class Caroussel extends Component {
     const TagName = this.components()[this.state.componentToRender];
     return (
       <div className="car_box">
-        <TagName params={this.state.pictures} />
+        <TagName  />
       </div>
     );
   }
