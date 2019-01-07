@@ -10,14 +10,14 @@ class FactBox extends Component {
   constructor(props) {
     super(props);
     this.currentImage = 0;
-    this.pictureArray = props.params;
+    this.pictureArray = ['assets/charts-pressekonferenz2017.jpg', 'https://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'];
     this.imageCount = this.pictureArray.length;
     console.log(this.pictureArray[1]);
     this.state = {
       currentImage: 0,
       pictureArray: props.params,
-      imageCount: props.params.length,
-      factImage: props.params[0],
+      imageCount: this.pictureArray.length,
+      factImage: ['assets/charts-pressekonferenz2017.jpg', 'https://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'],
     }
   }
   componentDidMount() {
@@ -38,12 +38,14 @@ class FactBox extends Component {
       this.setState({currentImage: newCurrentImage});
     }
     console.log("Changing Picture to " + this.state.currentImage);
+    console.log("Picture : " + this.pictureArray[this.state.currentImage]);
     this.setState({factImage: this.pictureArray[this.state.currentImage]+ '?t=' + new Date().getTime()})
+    console.log("FactImage : " + this.state.factImage);
   }
   render() {
     return (      
       <div className="car_factBox">
-        <img width="300" src={this.state.factimage} alt="Infografik über Umschlagszahlen des Hamburger Hafens aus dem Jahr 2017"></img>
+        <img width="300" src={this.state.factimage} alt="Infografiken"></img>
       </div>
     );
   }

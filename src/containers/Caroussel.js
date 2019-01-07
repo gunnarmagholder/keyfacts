@@ -7,7 +7,7 @@ import WaterLevel from '../components/waterlevel';
 
 class Caroussel extends Component {
   config() { 
-    return {"timeBetweenComponents": 10000};
+    return {"timeBetweenComponents": 900000};
   }
   components() { 
     return [
@@ -19,7 +19,8 @@ class Caroussel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      componentToRender: 0
+      componentToRender: 0,
+      pictures: ['assets/charts-pressekonferenz2017.jpg', 'https://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'],  
     }
   }
   componentDidMount() {
@@ -40,12 +41,10 @@ class Caroussel extends Component {
     this.setState({ componentToRender: newComponentToRender });
   }
   render() {
-    
     const TagName = this.components()[this.state.componentToRender];
-    const pictures = ['assets/charts-pressekonferenz2017.jpg', 'assets/traffic-area_de.png','http://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'];
     return (
       <div className="car_box">
-        <TagName params={pictures} />
+        <TagName params={this.state.pictures} />
       </div>
     );
   }
