@@ -13,7 +13,6 @@ class Caroussel extends Component {
     return [
       PictureBox,
       FactBox,
-      WaterLevel,
       // TrafficInfo,
     ]
   }
