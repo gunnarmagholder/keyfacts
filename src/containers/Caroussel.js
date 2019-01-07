@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FactBox from '../components/FactBox';
 import PictureBox from '../components/PictureBox';
+import WaterLevel from '../components/waterlevel';
 // import { throws } from 'assert';
 // import TrafficInfo from '../components/TrafficInfo';
 
@@ -12,6 +13,7 @@ class Caroussel extends Component {
     return [
       PictureBox,
       FactBox,
+      WaterLevel,
       // TrafficInfo,
     ]
   }
@@ -41,7 +43,7 @@ class Caroussel extends Component {
   render() {
     
     const TagName = this.components()[this.state.componentToRender];
-    const pictures = ['assets/charts-pressekonferenz2017.jpg', 'assets/traffic-area_de.png'];
+    const pictures = ['assets/charts-pressekonferenz2017.jpg', 'assets/traffic-area_de.png','http://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'];
     return (
       <div className="car_box">
         <TagName params={pictures} />

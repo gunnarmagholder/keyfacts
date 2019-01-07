@@ -3,19 +3,42 @@ import React, { Component } from 'react';
 
 
 class FactBox extends Component {
+
+  config() {
+    return {"timeBetweenComponents": 10000};
+  }
   constructor(props) {
     super(props);
-    var pictureArray = props.params;
-    console.log(pictureArray[1]);
+    this.currentImage = 0;
+    this.pictureArray = props.params;
+    this.imageCount = this.pictureArray.length;
+    console.log(this.pictureArray[1]);
     this.state = {
-      containers: 15.000,
-      trains: 642,
-      currentShips: 87,
-      factimage: pictureArray[1] + '?t=' + new Date().getTime(),
+      currentImage: 0,
+      pictureArray: props.params,
+      imageCount: props.params.length,
+      factImage: props.params[0],
     }
   }
   componentDidMount() {
     console.log('Mounted FactBox');
+    this.timerID = setInterval(() => 
+      this.changeFactPiece(),
+      10000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  changeFactPiece() {
+    if(this.state.currentImage >= this.state.imageCount-1) {
+      console.log("reset currentImage");
+      this.setState({currentImage: 0});
+    } else {
+      var newCurrentImage = this.state.currentImage + 1;
+      this.setState({currentImage: newCurrentImage});
+    }
+    console.log("Changing Picture to " + this.state.currentImage);
+    this.setState({factImage: this.pictureArray[this.state.currentImage]+ '?t=' + new Date().getTime()})
   }
   render() {
     return (      
