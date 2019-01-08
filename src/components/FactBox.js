@@ -10,7 +10,7 @@ class FactBox extends Component {
   constructor(props) {
     super(props);
     this.currentImage = 0;
-    this.pictureArray = ['assets/charts-pressekonferenz2017.jpg', 'http://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'];
+    this.pictureArray = ['assets/charts-pressekonferenz2017.jpg'];
     this.imageCount = this.pictureArray.length;
     console.log(this.pictureArray[1]);
     this.state = {

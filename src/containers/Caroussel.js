@@ -11,8 +11,9 @@ class Caroussel extends Component {
   }
   components() { 
     return [
-      // PictureBox,
+      PictureBox,
       FactBox,
+      WaterLevel,
       // TrafficInfo,
     ]
   }
@@ -20,7 +21,7 @@ class Caroussel extends Component {
     super(props);
     this.state = {
       componentToRender: 0,
-      pictures: ['assets/charts-pressekonferenz2017.jpg', 'https://www.bsh-wasserstand.de/docs/pegel/stpauli_offprog.gif'],  
+      pictures: ['assets/charts-pressekonferenz2017.jpg'],  
     }
   }
   componentDidMount() {

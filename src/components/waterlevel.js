@@ -13,7 +13,7 @@ class WaterLevel extends Component {
   render() {
     return (
       <div className="factbox">
-        <img width="300" src={this.state.waterImage} alt="Wasserstämde und PrognosenSt. Pauli" />
+        <img width="300" src={this.state.waterImage} alt="Wasserstämde und Prognosen St. Pauli" />
       </div>
     );
   }
